@@ -29,66 +29,65 @@
 
         const root = ReactDOM.createRoot(container);
 
-        let a =
-            setInterval(() => {
-                const div = (
+        setInterval(() => {
+            const div = (
+                <div>
                     <div>
-                        <div>
-                            <h2>1a.</h2>
-                            <button>Good job!</button>
-                        </div>
-                        <div>
-                            <h2>1b.</h2>
-                            <p>My name is Sanjay Sharma</p>
-                        </div>
-                        <div>
-                            <h2>1c.</h2>
-                            <div>Cotton socks</div>
-                            <div>Price: $10</div>
-                            <button>Add to Cart</button>
-                        </div>
-
-                        <div>
-                            <h2>1d.</h2>
-                            <p>Answer is in console</p>
-                        </div>
-
-                        <div>
-                            <h2>1e.</h2>
-                            <p>Product Cost: ${productCost}</p>
-                        </div>
-
-                        <div>
-                            <h2>1f.</h2>
-                            <p>Product Cost: ${productCost}</p>
-                            <p>Shipping Cost: ${shippingCost}</p>
-                            <p>Total Cost: ${productCost + shippingCost}</p>
-                        </div>
-
-                        <div>
-                            <h2>1g.</h2>
-                            <p>Solution in console</p>
-                        </div>
-
-                        <div>
-                            <h2>1h.</h2>
-                            <p>Today is {dayjs().format('MMMM D')}</p>
-                        </div>
-
-                        <div>
-                            <h2>1i.</h2>
-                            <p>Current time: {dayjs().format('HH:mm:ss')}</p>
-                        </div>
-
-                        <div>
-                            <h2>1j.</h2>
-                            <p>Currrent time: {dayjs().format('HH:mm:ss')}</p>
-                        </div>
+                        <h2>1a.</h2>
+                        <button>Good job!</button>
                     </div>
-                )
+                    <div>
+                        <h2>1b.</h2>
+                        <p>My name is Sanjay Sharma</p>
+                    </div>
+                    <div>
+                        <h2>1c.</h2>
+                        <div>Cotton socks</div>
+                        <div>Price: $10</div>
+                        <button>Add to Cart</button>
+                    </div>
 
-                root.render(div);
-            }, 1000);
+                    <div>
+                        <h2>1d.</h2>
+                        <p>Answer is in console</p>
+                    </div>
+
+                    <div>
+                        <h2>1e.</h2>
+                        <p>Product Cost: ${productCost}</p>
+                    </div>
+
+                    <div>
+                        <h2>1f.</h2>
+                        <p>Product Cost: ${productCost}</p>
+                        <p>Shipping Cost: ${shippingCost}</p>
+                        <p>Total Cost: ${productCost + shippingCost}</p>
+                    </div>
+
+                    <div>
+                        <h2>1g.</h2>
+                        <p>Solution in console</p>
+                    </div>
+
+                    <div>
+                        <h2>1h.</h2>
+                        <p>Today is {dayjs().format('MMMM D')}</p>
+                    </div>
+
+                    <div>
+                        <h2>1i.</h2>
+                        <p>Current time: {dayjs().format('HH:mm:ss')}</p>
+                    </div>
+
+                    <div>
+                        <h2>1j.</h2>
+                        <p>Currrent time: {dayjs().format('HH:mm:ss')}</p>
+                    </div>
+                </div>
+            )
+
+            root.render(div);
+        }, 1000);
 
     </script>
 </body>

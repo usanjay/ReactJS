@@ -18,12 +18,30 @@
     <script type="text/babel">
         const container = document.querySelector('.js-container');
 
+        function LoginForm() {
+            return (
+                <>
+                    <div>
+                        <input type="text" placeholder="Email" />
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <button>Login</button>
+                    <button>Sign up</button>
+                </>
+            )
+        }
+
         function App() {
             return (
                 <>
-                    <h4>2a.</h4>
-                    "Hello, Welcome to my website"
+                    <h4>Exercise 2(a)</h4>
+                    <p>Hello, Welcome to my website</p>
+                    <LoginForm/>
                 </>
+
+
             )
         }
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter-3 Exercise</title>
+</head>
+
+<body>
+    <div class="js-container"></div>
+
+    <!-- React loading -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <!-- Chatbot loading -->
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+    <!-- Babel Loading -->
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+        function CounterButton({count, setCount}) {
+
+            // Count Increment
+            function counter() {
+                setCount(count + 1);
+            }
+
+            // return the button element
+            return (
+                <>
+                    <button onClick={counter}>
+                        Clicked {count} {count === 1 ? 'time' : 'times'}
+                    </button>
+                </>
+            )
+        }
+
+        function App() {
+            // Create the inital state of count
+            const [count, setCount] = React.useState(0);
+
+            function reset () {
+                setCount(0);
+            }
+
+            return (
+                <>
+                    <CounterButton
+                        count={count}
+                        setCount={setCount} />
+
+                    <CounterButton
+                        count={count}
+                        setCount={setCount} />
+
+                    <button onClick={reset}>
+                        Reset
+                    </button>
+                </>
+            )
+        }
+
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<App />)
+    </script>
+</body>
+
+</html>

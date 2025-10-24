@@ -82,7 +82,7 @@
             }
 
             return (
-                <div class="input-container">
+                <div className="input-container">
                     <input
                         className="input-box"
                         placeholder='Send a message to chatbox'
@@ -119,7 +119,7 @@
                     {sender === 'robot' && (
                         <img src="images/robot.png" width='45' />
                     )}
-                    <div class='msg'>{message}</div>
+                    <div className='msg'>{message}</div>
                     {sender === 'user' && (
                         <img src="images/user.png" width='45' />
                     )}
@@ -128,8 +128,19 @@
         }
 
         function ChatMessages({ chatMessages }) {
+            
+            const messageContainerRef = React.useRef(null);
+
+            React.useEffect(()=> {
+                const messageContainerElem = messageContainerRef.current;
+                if (messageContainerElem) {
+                    messageContainerElem.scrollTop = messageContainerElem.scrollHeight;
+                }
+            },[chatMessages]);
+
             return (
-                <div className="messages-container">
+                <div className="messages-container"
+                ref={messageContainerRef}>
                     {
                         chatMessages.map(chatMessage => (
                             <ChatMessage
@@ -144,23 +155,25 @@
         }
 
         function App() {
-            const [chatMessages, setChatMessages] = React.useState([{
-                message: 'hello',
-                user: 'user',
-                id: 'id1'
-            }, {
-                message: 'Hello! How can I help you?',
-                user: 'robot',
-                id: 'id2'
-            }, {
-                message: 'flip a coin',
-                user: 'user',
-                id: 'id3'
-            }, {
-                message: 'flip a coin',
-                user: 'robot',
-                id: 'id4'
-            }]);
+
+            const [chatMessages, setChatMessages] = React.useState([]);
+            // const [chatMessages, setChatMessages] = React.useState([{
+            //     message: 'hello',
+            //     user: 'user',
+            //     id: 'id1'
+            // }, {
+            //     message: 'Hello! How can I help you?',
+            //     user: 'robot',
+            //     id: 'id2'
+            // }, {
+            //     message: 'flip a coin',
+            //     user: 'user',
+            //     id: 'id3'
+            // }, {
+            //     message: 'flip a coin',
+            //     user: 'robot',
+            //     id: 'id4'
+            // }]);
             // const [chatMessages, setChatMessages] = array;
             // const chatMessages = array[0];
             // const setChatMessages = array[1];

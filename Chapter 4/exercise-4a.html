@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4a</title>
+
+    <style>
+        .btn {
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-on {
+            background-color: rgb(25, 135, 84);
+        }
+
+        .btn-off {
+            background-color: rgb(220,053, 69);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="js-container"></div>
+
+    <!-- React loading -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <!-- Chatbot loading -->
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+    <!-- Babel Loading -->
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+
+        function App() {
+
+            const [isButtonOn, setIsButtonOn] = React.useState(true);
+
+            function toggleBtn() {
+                // setIsButtonOn(isButtonOn ? false : true);
+                // Another Solution
+                setIsButtonOn(!isButtonOn);
+            }
+            return (
+                <>
+                    <button className={
+                        isButtonOn
+                            ? 'btn btn-on'
+                            : 'btn btn-off'
+                    }
+                        onClick={toggleBtn}>
+                        {isButtonOn ? 'ON' : 'OFF'}
+                    </button>
+                </>
+            )
+        }
+
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+
+</body>
+
+</html>

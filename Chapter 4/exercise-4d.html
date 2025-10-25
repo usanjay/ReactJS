@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - 4d</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        button {
+            background-color: rgb(25, 135, 84);
+            color: white;
+            padding: 12px 18px;
+            cursor: pointer;
+            border: none;
+            border: 5px;
+            margin-right: 5px;
+        }
+        .js-container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(222, 222, 222);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="js-container"></div>
+
+    <!-- React loading -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <!-- Chatbot loading -->
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+    <!-- Babel Loading -->
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+
+        function App() {
+            let timer = React.useRef(null);
+            const [count, setCount] = React.useState(0);
+            const buttonRef = React.useRef(null);
+
+            function updateCount() {
+                setCount(count + 1);
+            }
+            function reset() {
+                setCount(0);
+                clearInterval(timer.current);
+            }
+
+            function autoClick() {
+                timer.current && reset();
+                const buttonEle = buttonRef.current;
+                timer.current = setInterval(() => {
+                    // setCount(count+1)
+                    buttonEle.click();
+                }, 1000);
+                 console.log(timer);
+            }
+
+            return (
+                <>
+                    <button onClick={updateCount} ref={buttonRef}>Clicked {count} time</button>
+                    <button onClick={reset}>Reset</button>
+                    <button onClick={autoClick}>Auto Click</button>
+                </>
+            )
+        }
+
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+</body>
+
+</html>

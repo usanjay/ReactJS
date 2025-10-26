@@ -1,0 +1,26 @@
+.msg-box {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.user-msg {
+    justify-content: end;
+}
+
+.msg-box img {
+    align-self: start;
+}
+.msg {
+    background-color: rgb(237, 237, 237);
+    margin: 0 0.6rem;
+    display: flex;
+    padding: 15px 20px;
+    align-items: center;
+    border-radius: 10px;
+    max-width: 300px;
+}
+
+.loading-gif {
+    height: 45px;
+    margin: -15px;
+}

@@ -1,0 +1,11 @@
+.messages-container {
+    flex-grow: 1;
+    margin: 1.4rem 0;
+    overflow:scroll;
+    scrollbar-width: none;
+}
+
+.welcome-msg {
+    color: gray;
+    text-align: center;
+}

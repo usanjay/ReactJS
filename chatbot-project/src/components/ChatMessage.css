@@ -7,17 +7,27 @@
     justify-content: end;
 }
 
+.userProfileImage {
+    border-radius: 100%;
+    object-fit: cover;
+}
+
 .msg-box img {
     align-self: start;
 }
 .msg {
     background-color: rgb(237, 237, 237);
     margin: 0 0.6rem;
-    display: flex;
     padding: 15px 20px;
-    align-items: center;
     border-radius: 10px;
     max-width: 300px;
+}
+
+.msg-time {
+    align-self: start;
+    font-size: .8rem;
+    color: gray;
+    margin-top: .2rem;
 }
 
 .loading-gif {

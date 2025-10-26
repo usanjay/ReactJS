@@ -17,6 +17,7 @@ export function ChatMessages({ chatMessages }) {
               message={chatMessage.message}
               sender={chatMessage.user}
               key={chatMessage.id}
+              time={chatMessage.time}
             />
           ))
       }

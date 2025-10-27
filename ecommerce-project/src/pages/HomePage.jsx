@@ -1,12 +1,12 @@
 import './HomePage.css'
-import './Header.css'
-import Header from './Header';
+import '../components/Header.css'
+import Header from '../components/Header';
 
 function HomePage() {
     return (
         <>
             <title>Ecommerce Project</title>
-            
+
             <Header />
 
             <div className="home-page">

@@ -1,5 +1,5 @@
-import Header from "./Header"
-import './Header.css'
+import Header from "../components/Header"
+import '../components/Header.css'
 import './OrdersPage.css'
 
 

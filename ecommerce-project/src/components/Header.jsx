@@ -1,15 +1,15 @@
-import {Link} from 'react-router'
+import {NavLink} from 'react-router'
 
 function Header() {
     return (
         <div className="header">
             <div className="left-section">
-                <Link to="/" className="header-link">
+                <NavLink to="/" className="header-link">
                     <img className="logo"
                         src="images/logo-white.png" />
                     <img className="mobile-logo"
                         src="images/mobile-logo-white.png" />
-                </Link>
+                </NavLink>
             </div>
 
             <div className="middle-section">
@@ -21,16 +21,16 @@ function Header() {
             </div>
 
             <div className="right-section">
-                <Link to="/orders" className="orders-link header-link" >
+                <NavLink to="/orders" className="orders-link header-link" >
 
                     <span className="orders-text">Orders</span>
-                </Link>
+                </NavLink>
 
-                <Link to="/checkout" className="cart-link header-link">
+                <NavLink to="/checkout" className="cart-link header-link">
                     <img className="cart-icon" src="images/icons/cart-icon.png" />
                     <div className="cart-quantity">3</div>
                     <div className="cart-text">Cart</div>
-                </Link>
+                </NavLink>
             </div>
         </div>
     )

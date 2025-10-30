@@ -5,23 +5,15 @@ import '../components/Header.css'
 import Header from '../components/Header';
 import CheckMark from '../assets/images/icons/checkmark.png'
 
-function HomePage() {
+function HomePage({cart, setCart}) {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
-
+    
     useEffect(() => {
         axios.get('/api/products')
             .then(response => {
                 setProducts(response.data);
             })
     }, []);
-
-    useEffect(() => {
-        axios.get('/api/cart-items')
-            .then(response => {
-                setCart(response.data);
-            })
-    }, [])
 
     return (
         <>

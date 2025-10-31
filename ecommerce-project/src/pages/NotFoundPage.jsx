@@ -1,13 +1,13 @@
 import Header from '../components/Header'
 import './NotFoundPage.css';
 
-function ErrorPage() {
+function NotFoundPage({cart}) {
     return (
         <>
             <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
             <title>404 Page Not Found</title>
 
-            <Header />
+            <Header cart={cart}/>
 
             
             <div className="error-msg-container">
@@ -17,4 +17,4 @@ function ErrorPage() {
     )
 }
 
-export default ErrorPage;
+export default NotFoundPage;

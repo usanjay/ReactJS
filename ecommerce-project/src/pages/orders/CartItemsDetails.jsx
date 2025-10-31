@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import BuyAgain from '../../assets/images/icons/buy-again.png'
 import { Link } from 'react-router'
 
-export function CartItemsDetails({ orderProduct }) {
+export function CartItemsDetails({ orderProduct, order }) {
     return (
         <>
             <div className="product-image-container">
@@ -29,7 +29,7 @@ export function CartItemsDetails({ orderProduct }) {
             </div>
 
             <div className="product-actions">
-                <Link to="/tracking">
+                <Link to={`/tracking/${order.id}/${orderProduct.productId}`}>
                     <button className="track-package-button button-secondary">
                         Track package
                     </button>

@@ -7,7 +7,7 @@ export function OrderDetailsGrid({ order }) {
             {order.products.map(orderProduct => {
                 return (
                     <Fragment key={orderProduct.productId}>
-                        <CartItemsDetails orderProduct={orderProduct} />
+                        <CartItemsDetails orderProduct={orderProduct} order={order} />
                     </Fragment>
                 )
             })}

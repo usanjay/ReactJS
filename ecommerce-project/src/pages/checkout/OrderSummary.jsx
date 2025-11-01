@@ -1,8 +1,8 @@
 import { formatMoney } from '../../utils/money';
 import { DeliveryOptions } from './DeliveryOptions';
-import {DeliveryDate} from './DeliveryDate'
+import { DeliveryDate } from './DeliveryDate'
 
-export function OrderSummary({ deliveryOptions, cart }) {
+export function OrderSummary({ deliveryOptions, cart, loadCart }) {
    return (
       <div className="order-summary">
          {
@@ -10,7 +10,7 @@ export function OrderSummary({ deliveryOptions, cart }) {
 
                return (
                   <div key={cartItem.productId} className="cart-item-container">
-                     <DeliveryDate deliveryOptions= {deliveryOptions} cartItem = {cartItem}/>
+                     <DeliveryDate deliveryOptions={deliveryOptions} cartItem={cartItem} />
 
                      <div className="cart-item-details-grid">
                         <img className="product-image"
@@ -36,7 +36,11 @@ export function OrderSummary({ deliveryOptions, cart }) {
                            </div>
                         </div>
 
-                        <DeliveryOptions deliveryOptions={deliveryOptions} cartItem={cartItem} />
+                        <DeliveryOptions
+                           deliveryOptions={deliveryOptions}
+                           cartItem={cartItem}
+                           loadCart={loadCart}
+                        />
                      </div>
                   </div>
                )

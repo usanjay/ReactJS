@@ -9,6 +9,9 @@ import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
   const [cart, setCart] = useState([]);
+  window.axios = axios;
+  // to reset backend data: insert this in console
+  // axios.post('/api/reset')
 
   const loadCart = async () => {
     const response = await axios.get('/api/cart-items?expand=product');

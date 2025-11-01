@@ -4,10 +4,11 @@ import { formatMoney } from '../../utils/money';
 import CheckMark from '../../assets/images/icons/checkmark.png'
 
 export function Product({ product, loadCart }) {
-    const [quantity, setQuantity] = useState(false);
-    const [showAddedMessage, setShowAddedMessage] = useState(0);
+    const [quantity, setQuantity] = useState(1);
+    const [showAddedMessage, setShowAddedMessage] = useState(false);
 
     const addToCart = async () => {
+        console.log(quantity);
         await axios.post('api/cart-items', {
             productId: product.id,
             quantity

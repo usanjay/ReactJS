@@ -29,7 +29,7 @@ describe('Payment Summary Component', () => {
             const location = useLocation();
             return (
                 <div data-testid="url-path">{location.pathname}</div>
-            )
+            );
         }
 
         render(
@@ -43,36 +43,36 @@ describe('Payment Summary Component', () => {
     it('shows correct values', () => {
         expect(
             screen.getByText('Items (1):')
-        ).toBeInTheDocument;
+        ).toBeInTheDocument();
 
         expect(
             within(screen.getByTestId('products-cost'))
                 .getByText('$7.99')
-        ).toBeInTheDocument;
+        ).toBeInTheDocument();
 
         expect(
             within(screen.getByTestId('shipping-cost'))
                 .getByText('$0.00')
-        ).toBeInTheDocument;
+        ).toBeInTheDocument();
 
         expect(
             within(screen.getByTestId('total-cost-before-tax'))
                 .getByText('$7.99')
-        ).toBeInTheDocument;
+        ).toBeInTheDocument();
 
         expect(
             within(screen.getByTestId('tax-cost'))
                 .getByText('$0.80')
-        ).toBeInTheDocument;
+        ).toBeInTheDocument();
 
         expect(
             within(screen.getByTestId('total-cost'))
                 .getByText('$8.79')
-        ).toBeInTheDocument;
+        ).toBeInTheDocument();
     });
 
     it('place an order', async () => {
-        
+
         await user.click(
             screen.getByTestId('place-order-button')
         );
@@ -82,7 +82,7 @@ describe('Payment Summary Component', () => {
 
         expect(
             screen.getByTestId('url-path')
-        ).toHaveTextContent('/orders')
+        ).toHaveTextContent('/orders');
     })
 
 

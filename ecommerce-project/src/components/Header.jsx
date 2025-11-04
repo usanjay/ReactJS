@@ -23,8 +23,10 @@ function Header({ cart }) {
     return (
         <div className="header">
             <div className="left-section">
-                <NavLink to="/" className="header-link">
+                <NavLink to="/" className="header-link"
+                    data-testid="header-index-link" >
                     <img className="logo"
+                        data-testid="header-logo"
                         src={LogoWhite} />
                     <img className="mobile-logo"
                         src={MobileLogoWhite} />
@@ -32,22 +34,26 @@ function Header({ cart }) {
             </div>
 
             <div className="middle-section">
-                <input className="search-bar" type="text" placeholder="Search" onChange={searchInput} />
+                <input className="search-bar" type="text" data-testid="search-bar"
+                    placeholder="Search" onChange={searchInput} />
 
-                <button className="search-button" onClick={searchItems}>
+                <button className="search-button" data-testid="search-button"
+                    onClick={searchItems}>
                     <img className="search-icon" src={SearchIcon} />
                 </button>
             </div>
 
             <div className="right-section">
-                <NavLink to="/orders" className="orders-link header-link" >
+                <NavLink to="/orders" className="orders-link header-link"
+                    data-testid="orders-link" >
 
                     <span className="orders-text">Orders</span>
                 </NavLink>
 
-                <NavLink to="/checkout" className="cart-link header-link">
+                <NavLink to="/checkout" className="cart-link header-link"
+                    data-testid="cart-link" >
                     <img className="cart-icon" src={CartIcon} />
-                    <div className="cart-quantity">{getCartQnty(cart)}</div>
+                    <div className="cart-quantity" data-testid="header-cart-quantity">{getCartQnty(cart)}</div>
                     <div className="cart-text">Cart</div>
                 </NavLink>
             </div>

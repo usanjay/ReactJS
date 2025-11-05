@@ -1,0 +1,36 @@
+.msg-box {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.user-msg {
+    justify-content: end;
+}
+
+.userProfileImage {
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.msg-box img {
+    align-self: start;
+}
+.msg {
+    background-color: rgb(237, 237, 237);
+    margin: 0 0.6rem;
+    padding: 15px 20px;
+    border-radius: 10px;
+    max-width: 300px;
+}
+
+.msg-time {
+    align-self: start;
+    font-size: .8rem;
+    color: gray;
+    margin-top: .2rem;
+}
+
+.loading-gif {
+    height: 45px;
+    margin: -15px;
+}

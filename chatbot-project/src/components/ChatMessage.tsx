@@ -3,23 +3,26 @@ import RobotPP from '../assets/robot.png';
 import UserPP from '../assets/profile-1.jpg';
 import './ChatMessage.css'
 
-
-
-export function ChatMessage({ message, sender, time }) {
+type ChatMessasgeProps = {
+  message: string;
+  user: string;
+  time: string;
+};
+export function ChatMessage({ chatMessage }: {chatMessage: ChatMessasgeProps}) {
   return (
     <div className={
-      sender === 'robot' ? 'robot-msg msg-box' : 'user-msg msg-box'
+      chatMessage.user === 'robot' ? 'robot-msg msg-box' : 'user-msg msg-box'
     }>
-      {sender === 'robot' && (
+      {chatMessage.user === 'robot' && (
         <img src={RobotPP} width='45' />
       )}
       <div className='msg'>
-        {message}
+        {chatMessage.message}
         <div className="msg-time">{
-          dayjs(time).format('h:mma')
+          dayjs(chatMessage.time).format('h:mma')
         }</div>
       </div>
-      {sender === 'user' && (
+      {chatMessage.user === 'user' && (
         <img className='userProfileImage' src={UserPP} width='45' />
       )}
     </div>

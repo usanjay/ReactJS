@@ -14,10 +14,8 @@ export function ChatMessages({ chatMessages }) {
           )
           : chatMessages.map(chatMessage => (
             <ChatMessage
-              message={chatMessage.message}
-              sender={chatMessage.user}
+              chatMessage={chatMessage}
               key={chatMessage.id}
-              time={chatMessage.time}
             />
           ))
       }

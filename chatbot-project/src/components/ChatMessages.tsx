@@ -1,15 +1,13 @@
 import { ChatMessage } from './ChatMessage';
 import { useAutoScroll } from '../custom-hooks/useAutoScroll'
-import './ChatMessages.css'
+import './ChatMessages.css';
+import type { ChatMessageModel } from './ChatInput';
 
-type ChatMessagesProps = {
-  message: string;
-  user: 'user' | 'robot';
-  id: string;
-  time: string;
-}[];
+interface ChatMessagesProps {
+  chatMessages: ChatMessageModel[];
+}
 
-export function ChatMessages({ chatMessages }: {chatMessages: ChatMessagesProps}) {
+export function ChatMessages({ chatMessages }: ChatMessagesProps) {
   const messageContainerRef = useAutoScroll([chatMessages]);
   return (
     <div className="messages-container"
@@ -17,7 +15,9 @@ export function ChatMessages({ chatMessages }: {chatMessages: ChatMessagesProps}
       {
         chatMessages.length === 0
           ? (
-            <div className="welcome-msg">Welcome to the chatbot project! Send a message using the textbox below.</div>
+            <div className="welcome-msg">
+              Welcome to the chatbot project! Send a message using the textbox below
+            </div>
           )
           : chatMessages.map(chatMessage => (
             <ChatMessage

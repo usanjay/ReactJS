@@ -1,14 +1,14 @@
 import dayjs from 'dayjs'
 import RobotPP from '../assets/robot.png';
 import UserPP from '../assets/profile-1.jpg';
-import './ChatMessage.css'
+import LoadingSpinner from '../assets/loading-spinner.gif'
+import './ChatMessage.css';
+import type { ChatMessageModel } from './ChatInput';
 
-type ChatMessasgeProps = {
-  message: string;
-  user: string;
-  time: string;
+type ChatMessageProps = {
+  chatMessage: ChatMessageModel;
 };
-export function ChatMessage({ chatMessage }: {chatMessage: ChatMessasgeProps}) {
+export function ChatMessage({ chatMessage }: ChatMessageProps) {
   return (
     <div className={
       chatMessage.user === 'robot' ? 'robot-msg msg-box' : 'user-msg msg-box'
@@ -17,7 +17,12 @@ export function ChatMessage({ chatMessage }: {chatMessage: ChatMessasgeProps}) {
         <img src={RobotPP} width='45' />
       )}
       <div className='msg'>
-        {chatMessage.message}
+        {
+          (chatMessage.message === 'loading...')
+            ? (<img className="loading-gif" src={LoadingSpinner} />)
+            : (chatMessage.message)
+        }
+
         <div className="msg-time">{
           dayjs(chatMessage.time).format('h:mma')
         }</div>

@@ -1,24 +1,38 @@
 import { useState } from 'react'
 import { Chatbot } from 'supersimpledev';
-import LoadingSpinner from '../assets/loading-spinner.gif'
 import './ChatInput.css'
 import dayjs from 'dayjs';
 
-export function ChatInput({ chatMessages, setChatMessages }) {
+export type ChatMessageModel = {
+  message: string;
+  user: 'user' | 'robot';
+  id: string;
+  time: string | number;
+};
+
+interface ChatInputProps {
+  chatMessages: ChatMessageModel[];
+  setChatMessages: React.Dispatch<React.SetStateAction<ChatMessageModel[]>>;
+}
+
+export function ChatInput({ chatMessages, setChatMessages }: ChatInputProps) {
 
   const [inputText, setInputText] = useState('');
-  const [isLoading, setIsLoading] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
-  function saveInputText(event) {
+  function saveInputText(event: React.ChangeEvent<HTMLInputElement>) {
     setInputText(event.target.value);
   }
 
+  // Send Message Function
   async function sendMessage() {
+    //Stops if already loading or input is empty
     if (isLoading || inputText === '') {
       return
     }
     setIsLoading(true);
-    const newChatMessages = [
+
+    const newChatMessages: ChatMessageModel[] = [
       ...chatMessages,
       {
         message: inputText,
@@ -29,14 +43,14 @@ export function ChatInput({ chatMessages, setChatMessages }) {
     ]
 
     setChatMessages(newChatMessages);
-    setInputText('');
 
     setChatMessages([
       ...newChatMessages,
       {
-        message: (<img className="loading-gif" src={LoadingSpinner} />),
+        message: 'loading...',
         user: 'robot',
-        id: crypto.randomUUID()
+        id: crypto.randomUUID(),
+        time: dayjs().valueOf()
       }
     ]);
 
@@ -46,10 +60,12 @@ export function ChatInput({ chatMessages, setChatMessages }) {
       {
         message: response,
         user: 'robot',
-        id: crypto.randomUUID()
+        id: crypto.randomUUID(),
+        time: dayjs().valueOf()
       }
     ]);
 
+    setInputText('');
     setIsLoading(false);
 
   }
@@ -58,9 +74,12 @@ export function ChatInput({ chatMessages, setChatMessages }) {
     setChatMessages([]);
   }
 
-  function handleKeyDown(event) {
-    event.key === 'Enter' && sendMessage();
-    event.key === 'Escape' && setInputText('');
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === 'Enter') {
+      sendMessage()
+    } else if (event.key === 'Escape') {
+      setInputText('');
+    }
   }
 
   return (
@@ -68,7 +87,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
       <input
         className="input-box"
         placeholder='Send a message to chatbox'
-        size='30'
+        size={30}
         onChange={saveInputText}
         value={inputText}
         onKeyDown={handleKeyDown}
